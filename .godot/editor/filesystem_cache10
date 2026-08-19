@@ -1,0 +1,29 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1787115769
+default_env.tres::Environment::-1::1787040039::0::1::::<><><>0<>0<><>::
+HUD.gd::GDScript::6728055264000482478::1787115351::0::1::::<>CanvasLayer<><>0<>0<><>::
+HUD.tscn::PackedScene::-1::1787039635::0::1::::<><><>0<>0<><>::res://fonts/Xolonium-Regular.ttf<>res://HUD.gd
+icon.png::CompressedTexture2D::3868426275380578292::1786954437::1787115770::1::::<><><>0<>0<>11367c19e014e833e8d6d440e6ee79ae<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
+Main.gd::GDScript::944756927198941115::1787115584::0::1::::<>Node<><>0<>0<><>::
+Main.tscn::PackedScene::-1::1787040039::0::1::::<><><>0<>0<><>::res://Main.gd<>res://Mob.tscn<>res://Player.tscn<>res://HUD.tscn<>res://art/gameover.wav<>res://art/House In a Forest Loop.ogg
+Mob.gd::GDScript::4708218792043046920::1787115619::0::1::::<>RigidBody2D<><>0<>0<><>::
+Mob.tscn::PackedScene::-1::1787039635::0::1::::<><><>0<>0<><>::res://art/enemySwimming_2.png<>res://art/enemyFlyingAlt_2.png<>res://art/enemyFlyingAlt_1.png<>res://art/enemySwimming_1.png<>res://art/enemyWalking_1.png<>res://art/enemyWalking_2.png<>res://Mob.gd
+Player.gd::GDScript::1282917771861403951::1787115695::0::1::::<>Area2D<><>0<>0<><>::
+Player.tscn::PackedScene::-1::1787039635::0::1::::<><><>0<>0<><>::res://art/playerGrey_walk1.png<>res://art/playerGrey_walk2.png<>res://Player.gd<>res://art/playerGrey_up1.png<>res://art/playerGrey_up2.png
+::res://art/::1786954504
+enemyFlyingAlt_1.png::CompressedTexture2D::3384387748174564116::1786954504::1787115770::1::::<><><>0<>0<>8ca89a562abcdfb83d370acb2ec918aa<>res://.godot/imported/enemyFlyingAlt_1.png-559f599b16c69b112c1b53f6332e9489.ctex::
+enemyFlyingAlt_2.png::CompressedTexture2D::4324648930397424499::1786954504::1787115770::1::::<><><>0<>0<>5694e893a0f1a8f1ca928368a924ef64<>res://.godot/imported/enemyFlyingAlt_2.png-31dc7310eda6e1b721224f3cd932c076.ctex::
+enemySwimming_1.png::CompressedTexture2D::4583815819790850362::1786954504::1787115770::1::::<><><>0<>0<>7e1c775dbf4005e692d87bfe73579c7c<>res://.godot/imported/enemySwimming_1.png-dd0e11759dc3d624c8a704f6e98a3d80.ctex::
+enemySwimming_2.png::CompressedTexture2D::6798925217532936769::1786954504::1787115770::1::::<><><>0<>0<>61cb31272cd1706bf301790e6fa92e4d<>res://.godot/imported/enemySwimming_2.png-4c0cbc0732264c4ea3290340bd4a0a62.ctex::
+enemyWalking_1.png::CompressedTexture2D::8573296244909631548::1786954504::1787115770::1::::<><><>0<>0<>9a16135d746fd1d379fc57ca8d2194f7<>res://.godot/imported/enemyWalking_1.png-5af6eedbe61b701677d490ffdc1e6471.ctex::
+enemyWalking_2.png::CompressedTexture2D::2663252351114798672::1786954504::1787115770::1::::<><><>0<>0<>436d63666e879a02a70cdd3342b5f0db<>res://.godot/imported/enemyWalking_2.png-67c480ed60c35e95f5acb0436246b935.ctex::
+gameover.wav::AudioStreamWAV::4432648739211974830::1786954504::1787115770::1::::<><><>0<>0<>587e71f339e18f71d870961ef56954b4<>res://.godot/imported/gameover.wav-98c95c744b35280048c2bd093cf8a356.sample::
+House In a Forest Loop.ogg::AudioStreamOggVorbis::4989225996281670876::1786954504::1787115770::1::::<><><>0<>0<>92baa39961d22c351f6400a74995717f<>res://.godot/imported/House In a Forest Loop.ogg-1a6a72ae843ad792b7039931227e8d50.oggvorbisstr::
+playerGrey_up1.png::CompressedTexture2D::7090608318741868363::1786954504::1787115770::1::::<><><>0<>0<>7ddf2ec79f2f753ec0fab6cc735a7e26<>res://.godot/imported/playerGrey_up1.png-6bd114d0a6beac91f48e3a7314d44564.ctex::
+playerGrey_up2.png::CompressedTexture2D::1702892729016426919::1786954504::1787115770::1::::<><><>0<>0<>0d7cb80c2f5cfcbf42777e4649aadb4d<>res://.godot/imported/playerGrey_up2.png-d6aba85f5f2675ebc7045efa7552ee79.ctex::
+playerGrey_walk1.png::CompressedTexture2D::2510396545775563855::1786954504::1787115770::1::::<><><>0<>0<>941a945deb6ffea1dcf71b2666978fd0<>res://.godot/imported/playerGrey_walk1.png-c4773fe7a7bf85d7ab732eb4458c2742.ctex::
+playerGrey_walk2.png::CompressedTexture2D::1907577624857728749::1786954504::1787115770::1::::<><><>0<>0<>d78930b3fea9c2357d53d1bdf16f7d9d<>res://.godot/imported/playerGrey_walk2.png-34d2d916366100182d08037c51884043.ctex::
+::res://fonts/::1786954504
+FONTLOG.txt::TextFile::-1::1786954504::0::1::::<><><>0<>0<><>::
+LICENSE.txt::TextFile::-1::1786954504::0::1::::<><><>0<>0<><>::
+Xolonium-Regular.ttf::FontFile::5477033496732638255::1786954504::1787115770::1::::<><><>0<>0<>f665776d28eb82d31ae99618f1b1eb5d<>res://.godot/imported/Xolonium-Regular.ttf-bc2981e3069cff4c34dd7c8e2bb73fba.fontdata::

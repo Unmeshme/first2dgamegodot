@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://TransitionScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SceneManager.gd" type="Script" id=2]
+[ext_resource path="res://art/House In a Forest Loop.ogg" type="AudioStream" id=3]
+
+[node name="SceneManager" type="Node"]
+script = ExtResource( 2 )
+
+[node name="CurrentNode" type="Node" parent="."]
+
+[node name="TransitionScreen" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

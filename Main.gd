@@ -5,6 +5,7 @@ var score
 
 
 func _ready():
+	#can call my splash screen there
 	randomize()
 	new_game()
 
@@ -13,35 +14,34 @@ func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
-	$music.stop()
 	$DeathSound.play()
 	
 func new_game():
 	score = 0
-	$music.play()
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")	
+	$HUD.show_message("Get Ready")
+
 	get_tree().call_group("mobs", "queue_free")
 
 func _on_MobTimer_timeout():
-	var mob = mob_scene.instance()
-	var mob_spawn_location = get_node("MobPath/MobSpawnLocation")
-	mob_spawn_location.offset = randi()
+	var m_mob = mob_scene.instance()
+	var m_mob_spawn_location = get_node("MobPath/MobSpawnLocation")
+	m_mob_spawn_location.offset = randi()
 	
-	var direction = mob_spawn_location.rotation + PI/2
-	mob.position = mob_spawn_location.position
+	var m_direction = m_mob_spawn_location.rotation + PI/2
+	m_mob.position = m_mob_spawn_location.position
 	
-	direction += rand_range(-PI / 4, PI / 4)
+	m_direction += rand_range(-PI / 4, PI / 4)
 	
-	mob.rotation = direction
+	m_mob.rotation = m_direction
 	
-	var velocity = Vector2(rand_range(150, 250), 0)
-	mob.linear_velocity = velocity.rotated(direction)
+	var m_velocity = Vector2(rand_range(150, 250), 0)
+	m_mob.linear_velocity = m_velocity.rotated(m_direction)
 	
 	
-	add_child(mob)
+	add_child(m_mob)
 
 
 func _on_ScoreTimer_timeout():

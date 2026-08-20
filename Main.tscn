@@ -4,7 +4,7 @@
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://art/gameover.wav" type="AudioStream" id=5]
+[ext_resource path="res://gameover.wav" type="AudioStream" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -21,6 +21,7 @@ margin_bottom = 720.0
 color = Color( 0.174716, 0.408808, 0.480469, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -69, 23 )
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5

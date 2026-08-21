@@ -1,16 +1,16 @@
 extends RigidBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var animated_sprite: AnimatedSprite = $AnimatedSprite
+
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite.playing = true
-	var m_mob_types = $AnimatedSprite.frames.get_animation_names()
-	$AnimatedSprite.animation = m_mob_types[randi() % m_mob_types.size()]
+	animated_sprite.playing = true
+	var m_mob_types = animated_sprite.frames.get_animation_names()
+	animated_sprite.animation = m_mob_types[randi() % m_mob_types.size()]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

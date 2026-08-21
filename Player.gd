@@ -1,19 +1,21 @@
 extends Area2D
 signal hit
 
+onready var animated_sprite: AnimatedSprite = $AnimatedSprite
+onready var hitbox: CollisionShape2D = $CollisionShape2D
 
-export var speed = 400 #player movement speed
-var screen_size #size of game window
-var collision_radius
-var collision_height
+export var speed :int = 400 #player movement speed
+var screen_size: Vector2 = Vector2.ZERO
+var collision_radius: float = 0.0
+var collision_height: float = 0.0
 
-func _ready():
+func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	collision_radius = $CollisionShape2D.shape.radius
-	collision_height = $CollisionShape2D.shape.height
+	collision_radius = hitbox.shape.radius
+	collision_height = hitbox.shape.height
 
 	
-func _process(p_delta) :
+func _process(p_delta: float) -> void:
 	var p_velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_down"):
 		p_velocity.y += 1
@@ -26,32 +28,32 @@ func _process(p_delta) :
 		
 	if p_velocity.length() > 0:
 		p_velocity = p_velocity.normalized() * speed
-		$AnimatedSprite.play()
+		animated_sprite.play()
 	else:
-		$AnimatedSprite.stop()
+		animated_sprite.stop()
 		
 	position += p_velocity* p_delta
 	position.x = clamp(position.x , 0 + collision_radius, screen_size.x - collision_radius)
 	position.y = clamp(position.y , 0 + collision_height * 2 , screen_size.y - collision_height * 2)
 	
 	if p_velocity.x != 0: #body is moving
-		$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.flip_v = false
+		animated_sprite.animation = "walk"
+		animated_sprite.flip_v = false
 		
-		$AnimatedSprite.flip_h = p_velocity.x < 0
+		animated_sprite.flip_h = p_velocity.x < 0
 	elif p_velocity.y !=0: #body is moving but in different axis
-		$AnimatedSprite.animation = "up"
-		$AnimatedSprite.flip_v = p_velocity.y > 0
+		animated_sprite.animation = "up"
+		animated_sprite.flip_v = p_velocity.y > 0
 
 
-func _on_Player_body_entered(_body):
+func _on_Player_body_entered(_body: RigidBody2D) -> void:
 	hide()
 	emit_signal("hit")
-	$CollisionShape2D.set_deferred("disabled", true)
+	hitbox.set_deferred("disabled", true)
 
-func start(p_pos):
+func start(p_pos: Vector2) ->void :
 	position = p_pos
 	show()
-	$CollisionShape2D.disabled = false
+	hitbox.disabled = false
 
 

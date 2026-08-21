@@ -1,11 +1,23 @@
 extends Node
 
+
 export(PackedScene) var mob_scene
-var score
+
+onready var player: Area2D = $Player
+onready var mob_timer: Timer = $MobTimer
+onready var score_timer: Timer = $ScoreTimer
+onready var start_timer: Timer = $StartTimer
+onready var death_sound: AudioStreamPlayer = $DeathSound
+onready var HUD: CanvasLayer = $HUD
+onready var start_position: Position2D = $StartPosition
 
 
-func _ready():
+var score: int = 0
+
+
+func _ready() -> void:
 	#a countdown of 3 second here will work the best
+	player.hide()
 	randomize()
 	#bind it here ig?
 	self.connect("music_toggled", self, "_on_music_toggle")
@@ -13,23 +25,24 @@ func _ready():
 	new_game()
 
 
-func game_over():
-	$ScoreTimer.stop()
-	$MobTimer.stop()
-	$HUD.show_game_over()
+func game_over() -> void:
+	score_timer.stop()
+	mob_timer.stop()
+	HUD.show_game_over()
+	player.hide()
 	if(SettingsManager.music_enabled):
-		$DeathSound.play()
+		death_sound.play()
 	
-func new_game():
+func new_game() -> void:
 	score = 0
-	$Player.start($StartPosition.position)
-	$StartTimer.start()
-	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
+	_reset_player()
+	start_timer.start()
+	HUD.update_score(score)
+	HUD.show_message("Get Ready")
 
 	get_tree().call_group("mobs", "queue_free")
 
-func _on_MobTimer_timeout():
+func _on_MobTimer_timeout() ->void:
 	var m_mob = mob_scene.instance()
 	var m_mob_spawn_location = get_node("MobPath/MobSpawnLocation")
 	m_mob_spawn_location.offset = randi()
@@ -48,14 +61,24 @@ func _on_MobTimer_timeout():
 	add_child(m_mob)
 
 
-func _on_ScoreTimer_timeout():
+func _on_ScoreTimer_timeout() -> void:
 	score += 1
-	$HUD.update_score(score)
+	HUD.update_score(score)
 
-func _on_StartTimer_timeout():
-	$MobTimer.start()
-	$ScoreTimer.start()
+func _on_StartTimer_timeout() -> void:
+	mob_timer.start()
+	score_timer.start()
 	
-func _on_music_toggle():
-	$DeathSound.stream_paused = !SettingsManager.game_music_enabled
-	
+func _on_music_toggle() -> void:
+	death_sound.stream_paused = !SettingsManager.game_music_enabled
+
+func _reset_player() -> void:
+	#reset the orientation
+	player.animated_sprite.stop()
+	player.animated_sprite.rotation = 0
+	player.animated_sprite.flip_h = 0
+	player.animated_sprite.flip_v = 0
+	#place the player in their position
+	player.start(start_position.position)
+	#show player for new game
+	player.show()

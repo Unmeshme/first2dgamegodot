@@ -5,8 +5,11 @@ var score
 
 
 func _ready():
-	#can call my splash screen there
+	#a countdown of 3 second here will work the best
 	randomize()
+	#bind it here ig?
+	self.connect("music_toggled", self, "_on_music_toggle")
+	yield(get_tree().create_timer(4.0), "timeout")
 	new_game()
 
 
@@ -14,7 +17,8 @@ func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
-	$DeathSound.play()
+	if(SettingsManager.music_enabled):
+		$DeathSound.play()
 	
 func new_game():
 	score = 0
@@ -51,4 +55,7 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+	
+func _on_music_toggle():
+	$DeathSound.stream_paused = !SettingsManager.game_music_enabled
 	
